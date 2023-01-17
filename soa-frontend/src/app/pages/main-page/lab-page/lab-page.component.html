@@ -1,0 +1,28 @@
+<div class="lab_page">
+  <mat-tab-group
+    (selectedTabChange)="changeTab($event)"
+  >
+    <mat-tab
+      class="hidden_tab"
+      label="">
+    </mat-tab>
+    <mat-tab label="About">
+      <app-intro-block></app-intro-block>
+    </mat-tab>
+    <mat-tab
+      label="Labs">
+    </mat-tab>
+    <mat-tab label="Disciplines">
+    </mat-tab>
+  </mat-tab-group>
+
+  <div class="flex_container">
+    <mat-card class="lab_edit_card">
+      <app-lab-form
+        [editMode]="true"
+        [lab]="$lab"
+      >
+      </app-lab-form>
+    </mat-card>
+  </div>
+</div>

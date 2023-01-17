@@ -1,0 +1,58 @@
+<div class="labs_block">
+  <div class="left_side">
+    <mat-card class="search_card ontainer__centered__start">
+      <div class="flex_container__space">
+        <div class="flex_container gap-1rem">
+          <button
+            (click)="clickAddButton()"
+            mat-raised-button
+            class="add_button"
+            aria-label="Example icon button with a delete icon">
+            New lab...
+          </button>
+          <button
+            (click)="clickAverageMinPointButton()"
+            mat-raised-button
+            aria-label="Example icon button with a delete icon">
+            Average min point
+          </button>
+          <button
+            (click)="clickDeleteByDifficultyButton()"
+            mat-raised-button
+            aria-label="Example icon button with a delete icon">
+            Delete by difficulty
+          </button>
+        </div>
+      </div>
+      <mat-paginator [length]="labAmount"
+                     [pageIndex]="pageIndex"
+                     [pageSize]="pageSize"
+                     [pageSizeOptions]="pageSizeOptions"
+                     (page)="onPageChange($event)">
+      </mat-paginator>
+
+    </mat-card>
+    <div>
+      <div class="labs_grid">
+        <app-lab-card
+          *ngFor="let lab of labs"
+          [lab]="lab"
+        >
+        </app-lab-card>
+      </div>
+    </div>
+    <mat-paginator
+      class="bottom_paginator"
+      *ngIf="labs.length > 12" [length]="labAmount"
+                   [pageIndex]="pageIndex"
+                   [pageSize]="pageSize"
+                   [pageSizeOptions]="pageSizeOptions"
+                   (page)="onPageChange($event)">
+    </mat-paginator>
+  </div>
+  <div class="filter_container">
+    <app-filter-accordion
+      (onSearch)="searchLabs($event)"
+    ></app-filter-accordion>
+  </div>
+</div>

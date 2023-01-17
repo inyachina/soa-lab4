@@ -1,0 +1,8 @@
+@import "src/assets/style/variables";
+
+::ng-deep .mat-tab-labels{
+  border-bottom: 2px solid $dark_color;
+  //border-right: 2px solid $dark_color;
+  //border-left: 2px solid $dark_color;
+  background: $sub_color;
+}

@@ -1,0 +1,49 @@
+@import "src/assets/style/variables";
+
+.lab_card {
+  padding: 1rem;
+  position: relative;
+  margin-bottom: 2%;
+  cursor: pointer;
+
+  .disc_label {
+    margin-left: -0.3rem;
+    margin-top: -0.1rem;
+    color: $dark_text;
+  }
+
+  .name {
+    font-weight: bolder;
+    color: #3f2f5a;
+    overflow-wrap: break-word;
+    margin-top: 0.5rem;
+    height: 5rem;
+  }
+
+  .date {
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    font-weight: bolder;
+    color: rgba(1, 1, 1, 0.3);
+  }
+
+  .points {
+    display: flex;
+    .point {
+      margin-top: 0.5rem;
+      margin-left: 0.5rem;
+      display: flex;
+      span {
+        font-size: 0.8rem;
+        font-weight: bolder;
+        color: rgba(1, 1, 1, 0.3);
+      }
+      .point_num{
+        margin-left: 0.3rem;
+        margin-top: -0.15rem;
+
+        color: $base_color;
+      }
+    }
+  }
+}

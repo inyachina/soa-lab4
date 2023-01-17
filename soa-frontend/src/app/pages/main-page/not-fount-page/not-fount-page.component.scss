@@ -1,0 +1,13 @@
+@import "src/assets/style/variables";
+
+.not_found_page{
+  min-height: 70vh;
+  .title{
+    font-size: 3.8rem;
+    font-weight: bolder;
+    //margin-left: 3rem;
+    font-family: cursive;
+    position: relative;
+    color: $base_color;
+  }
+}

@@ -1,0 +1,141 @@
+<!--<div *ngIf="!isEditMode || !!this.form.controls.name.getRawValue()" class="lab_form">-->
+<div class="lab_form">
+
+  <div class="creation_date">
+    {{lab?.creationDate | date: 'yyyy.MM.dd'}}
+  </div>
+  <div class="title_container container__centered">
+    <div class="title">{{!isEditMode ? 'Adding lab' : ('Lab ' + lab?.id)}}</div>
+  </div>
+
+  <form class="flex_container__column" [formGroup]="form">
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <textarea
+        [style.maxHeight.rem]="7"
+        [style.minHeight.rem]="2"
+        class="colorful_input"
+        matInput
+        formControlName="name"></textarea>
+    </mat-form-field>
+    <div class="number_block">
+      <div class="title subtitle">{{!isEditMode ? 'Set coordinates:' : 'Coordinates:'}}</div>
+      <mat-form-field appearance="outline">
+        <mat-label>X</mat-label>
+        <input
+          matInput
+          type="number"
+          maxlength="5"
+          oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+          formControlName="x">
+        <mat-error *ngIf="form.controls.x.invalid">Should be number < 295</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Y</mat-label>
+        <input
+          type="number"
+          maxlength="5"
+          oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+          matInput
+          formControlName="y">
+      </mat-form-field>
+      <div class="title subtitle">{{!isEditMode ? 'Set points:' : "Points:"}}</div>
+      <mat-form-field appearance="outline">
+        <mat-label>Minimal Point</mat-label>
+        <input
+          maxlength="5"
+          oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+          matInput
+          type="number"
+          formControlName="minimalPoint">
+
+        <mat-error *ngIf="form.controls.minimalPoint.invalid">Should be non-negative number</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Personal Qualities Maximum</mat-label>
+        <input
+          maxlength="5"
+          oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+          type="number"
+          matInput
+          formControlName="personalQualitiesMaximum">
+        <mat-error *ngIf="form.controls.personalQualitiesMaximum.invalid">Should be non-negative number</mat-error>
+      </mat-form-field>
+    </div>
+    <mat-form-field appearance="outline">
+      <mat-label>Difficulty</mat-label>
+      <mat-select formControlName="difficulty">
+        <mat-option value="VERY_EASY">very easy</mat-option>
+        <mat-option value="NORMAL">normal</mat-option>
+        <mat-option value="VERY_HARD">very hard</mat-option>
+        <mat-option value="IMPOSSIBLE">impossible</mat-option>
+        <mat-option value="INSANE">insane</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="discipline_block">
+      <div class="title subtitle">{{!isEditMode ? 'Choose discipline:' : 'Discipline:'}}</div>
+
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Discipline</mat-label>
+        <input type="text"
+               placeholder="Pick one"
+               aria-label="Number"
+               matInput
+               formControlName="discipline"
+               [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredDisciplines | async" [value]="option?.name">
+            {{option.name}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+
+    <button
+      *ngIf="!isEditMode"
+      [disabled]="isDisabledSaveButton()"
+      (click)="saveLab()"
+      mat-raised-button
+      class="add_button__lab_form">
+      Save
+    </button>
+
+    <div class="flex_container__space">
+      <button
+        *ngIf="isEditMode"
+        mat-raised-button
+        [style.visibility]="this.lab?.difficulty == 'VERY_EASY' ? 'hidden' : 'visible'"
+        [disabled]="isDisabledDecreaseButton()"
+        (click)="decreaseDifficulty()"
+      >
+        Decrease difficulty
+      </button>
+      <div
+        class="edit_buttons spa"
+        *ngIf="isEditMode">
+
+        <div class="flex_container gap-1rem">
+          <button
+            mat-raised-button
+            [disabled]="isDisabledEditButton()"
+            (click)="editLab()"
+          >
+            edit
+          </button>
+          <button
+            (click)="deleteLab()"
+            class="delete_button"
+            mat-raised-button>
+            delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<ng-template #nolab_block>
+  <div>
+    Something went wrong, there are no such lab
+  </div>
+</ng-template>

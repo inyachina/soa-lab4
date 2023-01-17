@@ -1,0 +1,26 @@
+@import "src/assets/style/variables";
+.discipline_block_container {
+  min-height: 90vh;
+  .new_discipline_button {
+    background: $accept_color;
+    margin: 0 0 1rem 1rem;
+  }
+
+  .discipline_block {
+    min-height: 90vh;
+    overflow: auto;
+
+    ::ng-deep table {
+      width: 100%;
+
+      td:last-child {
+        width: 10px;
+        padding-right: 10px;
+      }
+    }
+  }
+
+  .no_disciplines {
+    text-align: center;
+  }
+}

@@ -1,0 +1,8 @@
+.grid_labs_popup{
+  display: grid;
+  max-height: 80vh;
+  min-width: 40rem;
+  overflow-y: scroll;
+  grid-template-columns: 49% 49%;
+  grid-gap: 1%;
+}

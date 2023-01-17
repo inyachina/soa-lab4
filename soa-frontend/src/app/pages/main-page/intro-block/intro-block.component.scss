@@ -1,0 +1,43 @@
+@import "src/assets/style/variables";
+
+.intro_block {
+  height: 90vh;
+  margin: 0 2rem;
+  position: relative;
+  background: $back_color;
+  border-left: 2px solid $dark_color;
+  border-right: 2px solid $dark_color;
+  display: grid;
+  grid-template-columns: 60% 40%;
+
+  .filter_grid {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url(../../../../assets/img/grid.svg);
+  }
+
+  img{
+    z-index: 1;
+  }
+  .title_container {
+    z-index: 1;
+    //height: 90vh;
+
+    .title {
+      font-size: 3.8rem;
+      font-weight: bolder;
+      //margin-left: 3rem;
+      font-family: cursive;
+      position: relative;
+      color: $base_color;
+
+      .star {
+        animation: float 6s ease-in-out infinite;
+        //position: absolute;
+        //top: 0;
+      }
+    }
+  }
+}

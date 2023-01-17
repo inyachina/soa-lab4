@@ -1,0 +1,49 @@
+@import "src/assets/style/variables";
+
+.filter_block {
+  background: $base_color;
+  top: 0;
+  max-height: 100%;
+  overflow-y: scroll;
+  //position: absolute;
+  //top: 0;
+
+  .filter_title {
+    color: $light_text;
+    margin-bottom: 0.5rem;
+
+  }
+
+  .action_buttons {
+    text-align: right;
+    margin-top: -0.5rem;
+
+    ::ng-deep button * {
+      color: #4e4468;
+    }
+  }
+
+  .search_button {
+    background: $accept_color;
+  }
+
+  ::ng-deep .mat-form-field-wrapper {
+    padding: 0;
+  }
+
+  ::ng-deep .mat-form-field-flex > .mat-form-field-infix {
+    padding: 0.4em 0px !important;
+  }
+
+  ::ng-deep .mat-form-field-label-wrapper {
+    top: -1.5em;
+  }
+
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-wrapper {
+    margin: 0
+  }
+
+  ::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    transform: translateY(-1.1em) scale(.75);
+  }
+}

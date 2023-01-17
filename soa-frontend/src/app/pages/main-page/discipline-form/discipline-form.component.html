@@ -1,0 +1,41 @@
+<div class="discipline_form">
+  <div class="title_container container__centered">
+    <div class="title">Adding Discipline</div>
+  </div>
+  <form class="flex_container__column" [formGroup]="form">
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input
+        class="colorful_input"
+        matInput
+        formControlName="name">
+    </mat-form-field>
+    <div class="number_block">
+      <mat-form-field appearance="outline">
+        <mat-label>Lecture Hours</mat-label>
+        <input
+          maxlength="5"
+          oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+          matInput
+          type="number"
+          formControlName="lectureHours">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Self Study Hours</mat-label>
+        <input
+          maxlength="5"
+          oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+          type="number"
+          matInput
+          formControlName="selfStudyHours">
+      </mat-form-field>
+    </div>
+    <button
+      mat-raised-button
+      [disabled]="isDisabledButton()"
+      (click)="saveDiscipline()"
+  >
+      Save
+    </button>
+  </form>
+</div>

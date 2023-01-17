@@ -1,0 +1,64 @@
+@import "src/assets/style/variables";
+
+.discipline_form {
+  padding: 1rem 2rem;
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+  }
+
+  .title_container {
+    margin-bottom: 2rem;
+
+  }
+
+  form {
+    ::ng-deep .mat-form-field-flex > .mat-form-field-infix {
+      padding: 0.4em 0px !important;
+    }
+
+    ::ng-deep .mat-form-field-label-wrapper {
+      top: -1.5em;
+    }
+
+    ::ng-deep .mat-form-field-appearance-outline .mat-form-field-wrapper {
+      margin: 0
+    }
+
+    ::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+      transform: translateY(-1.1em) scale(.75);
+      width: 133.33333%;
+    }
+
+    .number_block {
+      display: grid;
+      grid-template-columns: 48.5% 48.5%;
+      gap: 3%;
+    }
+  }
+
+  .add_button__lab_form {
+    background: $accept_color;
+  }
+
+  .discipline_block{
+    .subtitle{
+      margin-right: 0.5rem;
+      margin-top: -1.2rem;
+    }
+  }
+
+  .edit_buttons{
+    display: flex;
+    justify-content: end;
+    gap: 1rem;
+    .delete_button{
+      background: $warn_color;
+    }
+  }
+}
+

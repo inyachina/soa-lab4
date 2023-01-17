@@ -1,0 +1,14 @@
+.lab_page{
+  min-height: 80vh;
+  .lab_card{
+    margin: 1rem;
+  }
+  ::ng-deep .mat-tab-label-active{
+    min-width: 0;
+    padding: 0;
+  }
+}
+
+.lab_edit_card{
+  margin: 1rem;
+}

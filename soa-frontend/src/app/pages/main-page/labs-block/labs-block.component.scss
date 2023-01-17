@@ -1,0 +1,49 @@
+@import "src/assets/style/variables";
+
+.labs_block{
+  min-height: 90vh;
+  padding: 0.5rem 1rem;
+  display: grid;
+  grid-template-columns: 74% 25%;
+  gap: 0.5%;
+  overflow-y: hidden;
+  position: relative;
+  .left_side{
+    position: sticky;
+  }
+  .search_card {
+    position: relative;
+    .add_button{
+      background: $accept_color;
+      //margin: 0 0 1rem 1rem;
+    }
+    .search_field {
+      width: 70%;
+      margin-top: 1rem;
+    }
+  }
+  .bottom_paginator{
+    background: transparent;
+    margin-right: -1.2rem;
+  }
+}
+
+.labs_grid{
+  margin-top: 0.5rem;
+  display: grid;
+  grid-template-columns: 32.9% 32.9% 32.9%;
+  column-gap: 0.7%;
+}
+
+.lab_paginator{l{
+    //font-size: 0.7rem;
+    color: #1a1a1a;
+  }
+}
+.mat-paginator-range-label{
+  display: none;
+}
+::ng-deep .page_select{
+  height: 1.5rem;
+  font-size: 0.7rem;
+}

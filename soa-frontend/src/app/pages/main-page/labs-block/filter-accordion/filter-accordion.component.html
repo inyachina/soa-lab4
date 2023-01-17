@@ -1,0 +1,27 @@
+<mat-card
+  class="filter_block"
+>
+  <div class="filter_title">Sort and Filter</div>
+  <div class="action_buttons">
+    <button mat-button (click)="accordion.openAll()">Expand All</button>
+    <button mat-button (click)="accordion.closeAll()">Collapse All</button>
+  </div>
+  <div class="flex_container__column gap-05rem">
+    <mat-accordion multi>
+      <app-filter-rule
+        *ngFor="let property of propertiesFormGroup"
+        [propertyFormGroup]="property"
+      ></app-filter-rule>
+      <div class="filter_title mt-1">Discipline</div>
+      <app-filter-rule
+        *ngFor="let property of disciplinePropertiesFormGroup"
+        [propertyFormGroup]="property"
+      ></app-filter-rule>
+    </mat-accordion>
+    <button
+      (click)="onSearch()"
+      class="search_button" mat-raised-button>
+      Search
+    </button>
+  </div>
+</mat-card>

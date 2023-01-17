@@ -1,0 +1,21 @@
+<form
+  class="flex_container__column gap-1rem">
+  <div class="title">
+    Choose step amount to decrease difficulty:
+  </div>
+  <mat-radio-group
+    class="container__centered gap-1rem"
+    name="radio_step"
+    [(ngModel)]="currentStep">
+    <mat-radio-button class="example-radio-button" *ngFor="let step of stepArray" [value]="step">
+      {{step}}
+    </mat-radio-button>
+  </mat-radio-group>
+  <button
+    (click)="closePopup()"
+    [disabled]="!(currentStep)"
+    mat-raised-button
+    class="delete_popup_button">
+    Decrease difficulty
+  </button>
+</form>

@@ -1,0 +1,69 @@
+<div class="discipline_block_container">
+
+  <button style="margin-top: 1rem" mat-raised-button class="new_discipline_button" (click)="clickAddButton()">New
+    discipline...
+  </button>
+
+  <div *ngIf="dataSource.data?.length" class="discipline_block">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name</th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="lectureHours">
+        <th mat-header-cell *matHeaderCellDef> Lecture Hours</th>
+        <td mat-cell *matCellDef="let element"> {{element.lectureHours}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="selfStudyHours">
+        <th mat-header-cell *matHeaderCellDef> Self Study Hours</th>
+        <td mat-cell *matCellDef="let element"> {{element.selfStudyHours}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item
+                    (click)="clickHardcoreLabs(element)"
+            >
+              <mat-icon class="dots">offline_bolt</mat-icon>
+              <span
+                class="pointer"
+              >Get 10 hardcore labs</span>
+            </button>
+            <!--            <button-->
+            <!--              (click)="clickDeleteButton(element)"-->
+            <!--              mat-menu-item>-->
+            <!--              <mat-icon class="dots">delete</mat-icon>-->
+            <!--              <span>Delete</span>-->
+            <!--            </button>-->
+          </mat-menu>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+
+    <mat-paginator
+      [length]="disciplineAmount"
+      [pageIndex]="pageIndex"
+      [pageSize]="pageSize"
+      [pageSizeOptions]="pageSizeOptions"
+      (page)="onPageChange($event)"
+      showFirstLastButtons
+      aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>
+
+  <mat-card *ngIf="dataSource.data?.length == 0" class="no_disciplines">
+    There are no disciplines yet
+  </mat-card>
+</div>

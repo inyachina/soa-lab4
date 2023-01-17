@@ -1,0 +1,42 @@
+<mat-card class="lab_card"
+          (click)="selectLab()"
+>
+  <div class="flex_container__column">
+    <app-difficulty-scale
+      [difficulty]='lab.difficulty'
+    ></app-difficulty-scale>
+    <div>
+      <div
+        class="disc_label flex_container__start"
+        [matTooltip]="(lab.discipline.name.length > 20) ? lab.discipline.name : ''">
+        <mat-icon style="-webkit-text-fill-color:#ba8181">class</mat-icon>
+        {{lab.discipline.name | truncate: 20}}
+      </div>
+    </div>
+    <div
+      [matTooltip]="(lab.name.length > 55) ? lab.name : ''"
+      class="id name">
+      {{lab.name | truncate: 55}}
+    </div>
+
+    <div class="flex_container__space">
+      <div class="date">
+        {{lab.creationDate | date: 'yyyy.MM.dd'}}
+      </div>
+      <div class="points">
+        <div class="point">
+          <span matTooltip="Minimal point">
+            Min:
+          </span>
+          <div class="point_num">{{lab.minimalPoint}}</div>
+        </div>
+        <div class="point">
+          <span matTooltip="Personal Qualities Maximum">
+            PQ:
+          </span>
+          <div class="point_num">{{lab.personalQualitiesMaximum}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-card>

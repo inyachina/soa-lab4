@@ -1,0 +1,66 @@
+<mat-expansion-panel
+  [class.dirty_filter_rule]="isDirtyForm()"
+>
+
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{name}}
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+
+  <div class="sort_filter_container gap-1rem mt-05rem">
+    <div class="flex_container__column gap-05rem">
+      <b>Sort:</b>
+      <mat-radio-group
+        [formControl]="sortControl"
+        class="flex_container__column gap-05rem" aria-label="Sort">
+        <mat-radio-button value="asc">ascending</mat-radio-button>
+        <mat-radio-button value="desc">descending</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <form
+      [formGroup]="filterFormGroup"
+      class="filter_part flex_container__column gap-05rem">
+      <b>Filter:</b>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Rule</mat-label>
+        <mat-select
+          formControlName="rule"
+          matNativeControl>
+          <mat-option *ngIf="!isNumber()" value="==">Equal to</mat-option>
+          <mat-option *ngIf="!isNumber()" value="!=">Not equal to</mat-option>
+          <mat-option *ngIf="isNumber()" value="=lt=">Less than</mat-option>
+          <mat-option *ngIf="isNumber()" value="=le=">Less than or equal to</mat-option>
+          <mat-option *ngIf="isNumber()" value="=gt=">Greater than</mat-option>
+          <mat-option *ngIf="isNumber()" value="=ge=">Greater than or equal to</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <ng-container *ngIf="!isEnum();else enum">
+        <mat-form-field appearance="outline">
+          <mat-label>value</mat-label>
+          <input formControlName="value" matInput>
+        </mat-form-field>
+      </ng-container>
+
+      <ng-template #enum>
+        <section class="flex_container__column">
+          <mat-checkbox (change)="checkDifficulty($event)" value="VERY_EASY">very easy</mat-checkbox>
+          <mat-checkbox (change)="checkDifficulty($event)" value="NORMAL">normal</mat-checkbox>
+          <mat-checkbox (change)="checkDifficulty($event)" value="VERY_HARD">very hard</mat-checkbox>
+          <mat-checkbox (change)="checkDifficulty($event)" value="IMPOSSIBLE">impossible</mat-checkbox>
+          <mat-checkbox (change)="checkDifficulty($event)" value="INSANE">insane</mat-checkbox>
+        </section>
+      </ng-template>
+
+    </form>
+
+  </div>
+  <button mat-button
+          class="pointer clear_button"
+          *ngIf="isDirtyForm()"
+          (click)="clearForm()"
+  >Clear
+  </button>
+</mat-expansion-panel>

@@ -1,0 +1,13 @@
+<ng-container *ngIf="data.length !== 0; else no_hardcore">
+<div class="title">Hardcore labs</div>
+<div class="grid_labs_popup">
+  <app-lab-card
+    *ngFor="let lab of data"
+    [lab]="lab"
+  >
+  </app-lab-card>
+</div>
+</ng-container>
+<ng-template #no_hardcore>
+  <div>No hardcore labs on such discipline</div>
+</ng-template>

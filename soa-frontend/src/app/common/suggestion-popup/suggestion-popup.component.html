@@ -1,0 +1,14 @@
+<div class="suggestion_popup">
+  <div class="text">{{data.text}}</div>
+  <div class="container__centered gap-1rem">
+    <button
+      class="suggest_button"
+      mat-raised-button
+      (click)="closeDialog(true)"
+    >Yes</button>
+    <button
+      mat-raised-button
+      (click)="closeDialog(false)"
+    >No</button>
+  </div>
+</div>

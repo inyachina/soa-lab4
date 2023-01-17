@@ -1,0 +1,44 @@
+@import "src/assets/style/variables";
+
+.footer {
+  background: $base_color;
+  position: relative;
+  display: flex;
+  padding: 2rem;
+  justify-content: end;
+  * {
+    color: $bg_color;
+  }
+
+  .title{
+    font-size: 1rem;
+  }
+  .subtitle{
+    color: #3f2f5a;
+    font-weight: bold;
+  }
+  .info {
+    display: grid;
+    grid-template-columns: 25% 65%;
+    gap: 0.5rem;
+    span, b {
+      color: #b0a8bf;
+      font-size: 0.8rem;
+      font-weight: lighter;
+    }
+  }
+  .info1{
+    width: 15rem;
+  }
+  .link{
+    height: 1.5rem;
+    margin-top: -0.2rem;
+  }
+
+  .itmo_label {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 50%;
+    margin-left: -3.5rem;
+  }
+}
