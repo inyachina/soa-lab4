@@ -1,0 +1,9 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:gs="http://soa/lab4">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <gs:getHardcoreLabsRequest>
+            <gs:discipline-id>1</gs:discipline-id>
+        </gs:getHardcoreLabsRequest>
+    </soapenv:Body>
+</soapenv:Envelope>
